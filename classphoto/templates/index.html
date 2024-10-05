@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>照片墙</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='test.css') }}">
+</head>
+<body>
+    <div class="title">
+        上海应用技术大学软工2024级Y2班级照片墙
+    </div>    
+    <div class="container">
+        {% for image_link, external_link in images_page %}
+        <div class="box">
+            <a href="{{ external_link }}"><img src="{{ image_link }}" alt="Photo"></a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if current_page < num_pages %}
+        <a href="{{ url_for('index', page=current_page+1) }}">下一页</a>
+        {% endif %}
+        {% if current_page > 1 %}
+        <a href="{{ url_for('index', page=current_page-1) }}">上一页</a>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+

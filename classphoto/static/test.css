@@ -1,0 +1,163 @@
+/* 桌面电脑（屏幕宽度大于 1024px） */
+@media screen and (min-width: 1025px) {
+    /* 桌面电脑布局和样式 */ 
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #1a252c;
+    }
+
+
+    .title {
+        text-align: center;
+        margin-bottom: 20px; /* 可选，添加一些下边距 */
+        color: white; /* 设置字体颜色为白色 */
+        font-family: 'Arial', sans-serif; /* 选择一个具有艺术感的字体，或者可以使用web字体 */
+        font-weight: bold; /* 加粗字体以增加艺术感 */
+    }
+
+
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        padding: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .pagination {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .pagination a {
+        padding: 5px 10px;
+        background-color: #eee;
+        border-radius: 5px;
+        margin: 0 5px;
+    }
+
+    .pagination a:hover {
+        background-color: #ddd;
+    }
+
+    /* 插入的样式 */
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-origin: preserve-3d;
+    }
+
+    .container .box {
+        width: 500px;
+        height: 500px;
+        position: relative;
+        transition: .5s;
+        /* -webkit-box-reflect 可能不被所有浏览器支持，根据需要移除或替换 */
+        -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
+    }
+
+    .container .box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .container:hover > :not(:hover) {
+        margin: 0 -20px;
+        filter: drop-shadow(0 0 25px #000) drop-shadow(0 0 25px #000);
+        transform: perspective(500px) rotateY(45deg) scale(0.95);
+    }
+
+    .container .box:hover ~ .box {
+        transform: perspective(500px) rotateY(-45deg) scale(0.95);
+    }
+
+    .container .box:hover {
+        transform: perspective(500px) rotateY(0) scale(1.2);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* 手机布局和样式 */
+    body {
+        padding: 10px;
+        background-color: #1a252c; /* 设置背景颜色 */
+    }
+    .title {
+        text-align: center;
+        margin-bottom: 20px; /* 可选，添加一些下边距 */
+        font-size: 45px;
+        color: white; /* 设置字体颜色为白色 */
+        font-family: 'Arial', sans-serif; /* 选择一个具有艺术感的字体，或者可以使用web字体 */
+        font-weight: bold; /* 加粗字体以增加艺术感 */
+    }
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container .box {
+        width: 100%;
+        /* 为了确保图片高度一致，可以设置一个具体的高度值，或者使用其他方法来控制 */
+        height: auto; /* 或者使用具体高度，如 height: 200px; */
+        margin-bottom: 20px;
+    }
+    .container .box img {
+        width: 100%;
+        height: auto; /* 保持图片比例，如果需要高度一致可以设置具体高度 */
+        object-fit: cover; /* 裁剪图片以适应容器尺寸 */
+        border: 1px solid #ddd;
+        padding: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .pagination {
+        display: flex; /* 使用 Flexbox 布局 */
+        justify-content: center; /* 水平居中 */
+        align-items: center; /* 垂直居中 */
+        flex-wrap: wrap; /* 允许元素在必要时换行 */
+        margin-top: 10px; /* 减小上边距 */
+        font-size: 45px; /* 放大字体大小至32px */
+        color: #ffffff; /* 设置字体颜色为白色，以便在黑暗背景下清晰可见 */
+    }
+    
+    .pagination a {
+        padding: 5px; /* 减小内边距 */
+        margin: 0 2px; /* 减小外边距 */
+        font-size: 45px; /* 放大字体大小至32px，与.pagination保持一致 */
+        color: #007bff; /* 设置链接颜色为亮蓝色，以便在黑暗背景下清晰可见 */
+        text-decoration: none; /* 去除链接下划线 */
+    }
+    
+    /* 当链接被访问过时，改变其颜色 */
+    .pagination a:visited {
+        color: #6610f2; /* 设置访问过的链接颜色为紫色 */
+    }
+    
+    /* 当鼠标悬停在链接上时，改变其颜色 */
+    .pagination a:hover {
+        color: #0056b3; /* 设置鼠标悬停时的链接颜色为较深的蓝色 */
+    }
+}
